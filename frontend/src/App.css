@@ -1,42 +1,227 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.body{
+  width: 100vw;
+  height: 100vh;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.addTask{
+  margin-left: 5px;
+  height: 4.5vh;
+  border-radius: 10px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  text-align: center;
+  gap:10px;
+  margin: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.searchBar{
+  width: 40vw;
+  height: 4vh;
+  border-radius: 10px;
+  text-align: center;
 }
 
-.card {
-  padding: 2em;
+.child{
+  border: 2px solid black;
+  height: 100vh;
+  border-radius: 10px;
 }
 
-.read-the-docs {
-  color: #888;
+.task-form-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 32, 38, 0.12); /* lighter overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.task-form {
+  background: #fff;
+  border-radius: 10px;
+  border: 2px solid #222;   /* match .child border */
+  box-shadow: 0 2px 8px rgba(60,60,90,0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  min-width: 320px;
+  max-width: 95vw;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.task-form h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.task-form label {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 0.1rem;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+.task-form input[type="text"],
+.task-form input[type="datetime-local"],
+.task-form textarea,
+.task-form select {
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 7px;
+  border: 1.5px solid #aaa;
+  background: #fafbfc;
+  margin-top: 0.1rem;
+  margin-bottom: 0.4rem;
+  width: 94%;
+  transition: border 0.18s;
+  outline: none;
+  resize: none;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  background: #f0f4ff;
+}
+
+.task-form textarea {
+  min-height: 50px;
+  max-height: 120px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: flex-end;
+  margin-top: 0.7rem;
+}
+
+.form-buttons button {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.form-buttons button[type="submit"] {
+  color: #444;
+  background: #f2f2f2;
+}
+
+
+.form-buttons button[type="button"] {
+  background: #f2f2f2;
+  color: #444;
+}
+
+.form-buttons button[type="button"]:hover {
+  background: #e0e0e0;
+  color: #222;
+}
+
+.task-board{
+  text-align: center;
+}
+
+.task-card-container {
+  background: #ffffff;
+  border: 1.8px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  text-align: left;
+}
+
+.task-card-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.task-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.task-desc {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.task-meta {
+  font-size: 0.9rem;
+  color: #444;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.task-meta span b {
+  color: #222;
+}
+
+.task-card-container label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-right: 6px;
+  color: #222;
+}
+
+.task-card-container select {
+  font-size: 0.95rem;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1.5px solid #bbb;
+  background: #f8f9fa;
+  margin-bottom: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.task-card-container select:focus {
+  border-color: #444;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.task-buttons button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.task-buttons button:hover {
+  background-color: #ddd;
 }
