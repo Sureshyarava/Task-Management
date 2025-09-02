@@ -1,6 +1,6 @@
 pipeline{
     agent any
-    tools {jdk "Java17"}
+    tools {jdk "JDK17"}
     stages {
         stage('Checkout'){
             steps{
