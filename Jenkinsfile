@@ -10,7 +10,7 @@ pipeline{
         stage('build'){
             steps{
                 dir('taskapi'){
-                    sh './mvnw clean package'
+                    sh './mvnw clean'
                 }
             }
         }
