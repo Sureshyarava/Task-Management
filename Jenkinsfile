@@ -12,6 +12,11 @@ pipeline{
                 dir('taskapi'){
                     sh './mvnw clean package'
                 }
+                post {
+                    success {
+                        archiveArtifacts artifacts: 'taskapi/target/*.jar', fingerprint: true
+                    }
+                }
             }
         }
     }
